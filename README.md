@@ -19,9 +19,9 @@ app and static files alongside its own API routes and the frontend.
 
 ## Live application
 
-- App: `<fill in after deploy>`
-- Admin panel: `<fill in after deploy>/admin`
-- API docs (Swagger): `<fill in after deploy>/docs`
+- App: https://stock-transfer-management-x9vd.onrender.com/app/
+- Admin panel: https://stock-transfer-management-x9vd.onrender.com/admin/
+- API docs (Swagger): https://stock-transfer-management-x9vd.onrender.com/docs
 
 ## Local setup
 
