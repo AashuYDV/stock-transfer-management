@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stock Transfer Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Stock Transfer Management</h1>
+    <nav>
+      <button data-view="dashboard" class="active">Dashboard</button>
+      <button data-view="new-transfer">New Transfer</button>
+      <button data-view="transfers">Transfers</button>
+      <button data-view="setup">Setup</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="msg" id="global-msg"></div>
+
+    <!-- Dashboard -->
+    <section class="view active" id="view-dashboard">
+      <div class="card">
+        <h2>Warehouse Stock Levels</h2>
+        <div id="dashboard-content" class="muted">Loading...</div>
+      </div>
+    </section>
+
+    <!-- New Transfer -->
+    <section class="view" id="view-new-transfer">
+      <div class="card">
+        <h2>Create Stock Transfer Request</h2>
+        <form id="transfer-form">
+          <label>Source warehouse
+            <select id="source-warehouse" required></select>
+          </label>
+          <label>Destination warehouse
+            <select id="destination-warehouse" required></select>
+          </label>
+          <label>Product
+            <select id="transfer-product" required></select>
+          </label>
+          <label>Quantity
+            <input type="number" id="transfer-quantity" min="1" required />
+          </label>
+          <button type="submit" class="primary">Create Transfer</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Transfers -->
+    <section class="view" id="view-transfers">
+      <div class="card">
+        <h2>Transfer History</h2>
+        <div class="filters">
+          <select id="filter-status">
+            <option value="">All statuses</option>
+            <option value="PENDING">Pending</option>
+            <option value="COMPLETED">Completed</option>
+            <option value="CANCELLED">Cancelled</option>
+          </select>
+        </div>
+        <div id="transfers-content" class="muted">Loading...</div>
+      </div>
+    </section>
+
+    <!-- Setup -->
+    <section class="view" id="view-setup">
+      <div class="card">
+        <h2>Create Warehouse</h2>
+        <form id="warehouse-form">
+          <label>Name
+            <input type="text" id="warehouse-name" required />
+          </label>
+          <label>Location
+            <input type="text" id="warehouse-location" />
+          </label>
+          <button type="submit" class="primary">Add Warehouse</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Create Product</h2>
+        <form id="product-form">
+          <label>Name
+            <input type="text" id="product-name" required />
+          </label>
+          <label>SKU
+            <input type="text" id="product-sku" required />
+          </label>
+          <button type="submit" class="primary">Add Product</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Set Stock Level</h2>
+        <form id="stock-form">
+          <label>Warehouse
+            <select id="stock-warehouse" required></select>
+          </label>
+          <label>Product
+            <select id="stock-product" required></select>
+          </label>
+          <label>Quantity
+            <input type="number" id="stock-quantity" min="0" required />
+          </label>
+          <button type="submit" class="primary">Set Stock</button>
+        </form>
+        <p class="muted">Sets the absolute stock quantity for that product at that warehouse. Also available via the <a href="/admin" target="_blank">Django admin</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
